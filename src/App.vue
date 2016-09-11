@@ -1,18 +1,13 @@
 <template lang="pug">
   .app-warp.background(':style'='{background: value}')
-    header.app-wrap__header
-      h1.app-wrap__title.js-title {{title}}
-      h2.app-wrap__sub.js-value {{value}}
+    header.header
+      h1.title.js-title {{title}}
+      h2.sub.js-value {{value}}
     slot
 </template>
 
 <script>
-import Hello from './components/Hello'
-
 export default {
-  components: {
-    Hello
-  },
   props: {
     title: String,
     value: String
@@ -29,30 +24,25 @@ export default {
 
 <style lang="scss">
 @import '~minireset.css/minireset';
-
-$c-black: #212121;
-$c-white: #fff;
-$bg: $c-white;
-$golden: 1.61803398875;
-$t-code: 'Inconsolata', ipm, Menlo, 'Courier New', monospace;
+@import 'style/settings';
 
 body, html {
   font-family: $t-code;
   height: 100%;
   font-size: calc(0.5rem + 1.4vh);
 }
+</style>
 
-.app-wrap {
-  &__header {
-    padding: 1rem;
-  }
-  &__title {
-    //font-family: $t-copy;
-    font-size: 2rem;
-    margin-bottom: 0.15em;
-  }
-  &__sub {
-    font-family: $t-code;
-  }
+<style lang="scss" scoped>
+@import 'style/settings';
+.header {
+  padding: 1rem;
+}
+.title {
+  font-size: 2rem;
+  margin-bottom: 0.15em;
+}
+.sub {
+  font-family: $t-code;
 }
 </style>
